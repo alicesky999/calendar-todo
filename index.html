@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <title>每日待辦</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+<link rel="icon" href="icon-192.png" />
+<meta name="theme-color" content="#29b6f6" />
+
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js").then(() => {
+      console.log("Service Worker registered");
+    });
+  }
+</script>
+</head>
+<body>
+  <div class="calendar-container">
+    <div class="calendar-header">
+      <button id="prevMonth">◀</button>
+      <h2 id="monthYear"></h2>
+      <button id="nextMonth">▶</button>
+    </div>
+    <div class="calendar-grid" id="calendarGrid"></div>
+  </div>
+
+  <div class="todo-container">
+    <h3 id="selectedDate"></h3>
+    <div id="todoList" class="todo-list"></div>
+    <input type="text" id="todoInput" placeholder="新增待辦事項" />
+    <button id="addTodo">新增</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
